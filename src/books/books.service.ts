@@ -2,6 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Book } from './books.entity';
+import { BookType } from './book.type';
 
 @Injectable()
 export class BooksService {
@@ -19,9 +20,9 @@ export class BooksService {
     return await this.booksRepository.findOneBy({ id });
   }
 
-  async create(book: any) {
+  async create(book: BookType) {
     const bookCreated = this.booksRepository.create(book);
-    await this.booksRepository.save(bookCreated);
+    return await this.booksRepository.save(bookCreated);
   }
 
   async update(id: number, attr: Partial<any>) {

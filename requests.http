@@ -1,0 +1,55 @@
+//USERS
+### GET USER BY ID
+GET http://localhost:3000/users/1
+
+### GET USER BY EMAIL
+GET http://localhost:3000/users?email=test@test.test
+
+### GET ALL USERS
+GET http://localhost:3000/users/all
+
+### SIGNUP
+POST http://localhost:3000/users/auth/signup
+Content-Type: application/json
+
+{
+  "email": "test@test.test",
+  "password": "test"
+}
+
+### SIGNIN
+POST http://localhost:3000/users/auth/signin
+Content-Type: application/json
+
+{
+  "email": "test@test.test",
+  "password": "test"
+}
+
+### UPDATE USER
+PATCH http://localhost:3000/users/1
+Content-Type: application/json
+
+{
+  "email": "non@non.non"
+}
+
+### DELETE USER
+DELETE http://localhost:3000/users/2
+
+//BOOKS
+### GET BOOK
+GET http://localhost:3000/books/1
+
+### CREATE BOOK
+POST http://localhost:3000/books
+Content-Type: application/json
+
+{
+  "title": "The Outsider",
+  "author": "Stephen King",
+  "gender": "Horror",
+  "rating": 8
+}
+
+

@@ -6,8 +6,12 @@ import {
   NotFoundException,
   Param,
   Patch,
+  Post,
 } from '@nestjs/common';
 import { BooksService } from './books.service';
+import { BookDto } from './dto/book.dto';
+import { Serialize } from '../common/interceptors/serialize.interceptor';
+import { CreateBookDto } from './dto/create-book.dto';
 
 @Controller('books')
 export class BooksController {
@@ -25,6 +29,14 @@ export class BooksController {
       throw new NotFoundException(`Book #${id} not found.`);
     }
     return user;
+  }
+
+  @Post()
+  @Serialize(BookDto)
+  // async createBook(@Body() book: CreateReportDto, @CurrentUser() user: User) {
+  //   return await this.booksService.create(book, user);
+  async createBook(@Body() book: CreateBookDto) {
+    return await this.booksService.create(book);
   }
 
   @Patch('/:id')

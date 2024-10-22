@@ -12,19 +12,16 @@ export class Book {
   id: number;
 
   @Column()
-  titre: string;
+  title: string;
 
   @Column()
-  auteur: string;
+  author: string;
 
   @Column()
-  genre: string;
+  gender: string;
 
   @Column()
-  rating: string;
-
-  @Column()
-  email: string;
+  rating: number;
 
   // @ManyToOne(() => User, (user: User) => user.booksLoaned)
   // user: User;
