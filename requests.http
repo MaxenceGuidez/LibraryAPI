@@ -52,4 +52,5 @@ Content-Type: application/json
   "rating": 8
 }
 
-
+### LOAN BOOK
+GET http://localhost:3000/books/loan/1

@@ -24,8 +24,8 @@ export class Book {
   @Column()
   rating: number;
 
-  @ManyToOne(() => User, (user: User) => user.booksLoaned)
-  user: User;
+  @Column()
+  isLoaned: boolean;
 
   @AfterInsert()
   logInsert() {

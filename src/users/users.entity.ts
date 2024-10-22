@@ -18,9 +18,6 @@ export class User {
   @Column()
   password: string;
 
-  @OneToMany(() => Book, (book: Book) => book.user)
-  booksLoaned: Book[];
-
   @AfterInsert()
   logInsert() {
     console.log('User created with id ' + this.id);
