@@ -3,6 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Book } from './books.entity';
 import { BookType } from './book.type';
+import { User } from '../users/users.entity';
 
 @Injectable()
 export class BooksService {

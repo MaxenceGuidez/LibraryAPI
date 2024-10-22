@@ -1,4 +1,4 @@
-import { Expose } from 'class-transformer';
+import { Expose, Transform } from 'class-transformer';
 
 export class BookDto {
   @Expose()
@@ -13,7 +13,7 @@ export class BookDto {
   @Expose()
   rating: number;
 
-  // @Transform(({ obj }) => obj.user.id)
-  // @Expose()
-  // userId: number;
+  @Transform(({ obj }) => obj.user.id)
+  @Expose()
+  userId: number;
 }

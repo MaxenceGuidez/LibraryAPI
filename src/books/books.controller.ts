@@ -12,6 +12,7 @@ import { BooksService } from './books.service';
 import { BookDto } from './dto/book.dto';
 import { Serialize } from '../common/interceptors/serialize.interceptor';
 import { CreateBookDto } from './dto/create-book.dto';
+import { User } from '../users/users.entity';
 
 @Controller('books')
 export class BooksController {
@@ -33,8 +34,6 @@ export class BooksController {
 
   @Post()
   @Serialize(BookDto)
-  // async createBook(@Body() book: CreateReportDto, @CurrentUser() user: User) {
-  //   return await this.booksService.create(book, user);
   async createBook(@Body() book: CreateBookDto) {
     return await this.booksService.create(book);
   }

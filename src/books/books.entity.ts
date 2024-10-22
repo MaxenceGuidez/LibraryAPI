@@ -5,6 +5,7 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
+import { User } from '../users/users.entity';
 
 @Entity()
 export class Book {
@@ -23,8 +24,8 @@ export class Book {
   @Column()
   rating: number;
 
-  // @ManyToOne(() => User, (user: User) => user.booksLoaned)
-  // user: User;
+  @ManyToOne(() => User, (user: User) => user.booksLoaned)
+  user: User;
 
   @AfterInsert()
   logInsert() {
